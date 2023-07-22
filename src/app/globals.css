@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  
+}
+
+@layer utilities {
+  .gradient-custom {
+    background: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  .gradient-from-color1 {
+    --tw-gradient-stops: var(--tw-color-color1) 0%, var(--tw-color-color1) 100%;
+  }
+  .gradient-to-color2 {
+    --tw-gradient-stops: var(--tw-color-color1) 50%, var(--tw-color-color2) 100%;
+  }
+}
