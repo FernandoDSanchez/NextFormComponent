@@ -38,22 +38,11 @@ export const validationSchemas = {
   bio: yup.object().shape({
     bio: yup.string().max(500, '📚 ¡Vaya, tienes mucho que decir! ¿Podemos mantenerlo por debajo de los 500 caracteres?'),
   }),
-  website: yup.object().shape({
-    website: yup
-      .string()
-      .url("💻 ¡Hmm, parece que ese no es un enlace URL válido!")
-      .notRequired(),
-  }),
   social: yup.object().shape({
-    social: yup.array().of(
-      yup.object().shape({
-        site: yup.string().required('⚠️ Please select a social media site.'),
-        url: yup
-          .string()
-          .url("📱 ¡Hmm, parece que ese no es un enlace URL válido!")
-          .required('⚠️ Please enter your social media link.'),
-      })
-    ),
+    social: yup
+      .string()
+      .matches(url,"💻 ¡Hmm, parece que ese no es un enlace URL válido!")
+      .notRequired(),
   }),
   description: yup.object().shape({
     description: yup
@@ -84,27 +73,10 @@ export const validationSchemas = {
         return value.type === 'image/png' || value.type === 'image/jpeg';
       }),
   }),
-  country: yup.object().shape({
-    country: yup.string().required('🌍 ¡Vaya! Parece que te has saltado tu país.'),
-  }),
-  bio: yup.object().shape({
-    bio: yup.string().max(500, '📚 ¡Vaya, tienes mucho que decir! ¿Podemos mantenerlo por debajo de los 500 caracteres?'),
-  }),
   website: yup.object().shape({
     website: yup
       .string()
       .matches(url,"💻 ¡Hmm, parece que ese no es un enlace URL válido!")
       .notRequired(),
-  }),
-  social: yup.object().shape({
-    social: yup.array().of(
-      yup.object().shape({
-        site: yup.string().required('⚠️ Please select a social media site.'),
-        url: yup
-          .string()
-          .url("📱 ¡Hmm, parece que ese no es un enlace URL válido!")
-          .required('⚠️ Please enter your social media link.'),
-      })
-    ),
   }),
 };

@@ -25,7 +25,7 @@ const GenerateInput = ({ formField}) => {
     case "date":
       return <DateInput key={formField.name} {...formField} />;
     case "social":
-      return <SocialInputs key={formField.name} {...formField} />; // Add SocialInputs case
+      return <URLInput key={formField.name} {...formField} />; // Add SocialInputs case
     case "url":
       return <URLInput key={formField.name} {...formField} />; // Add URLInput case
     default:
@@ -51,7 +51,7 @@ const InputField = ({ formField, initialValues, nextStep, step, isLastStep }) =>
         return (<Form onSubmit={handleSubmit}>
           <GenerateInput formField={formField}/>
           <NextButton
-            text="Next"
+            text="Ok"
             color="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
             type="submit"
             isDisabled={!dirty || !isValid ||  (!touched[formField.name] && !values[formField.name])}
