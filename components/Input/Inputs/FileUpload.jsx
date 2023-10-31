@@ -1,17 +1,32 @@
 import { useFormikContext, ErrorMessage } from "formik";
 import ArrowIcon from "../../icons/ArrowIcon";
+import { useState } from 'react';
 
 const FileUpload = ({ name, title, placeholder, required, maxSize, accept }) => {
   const { setFieldValue } = useFormikContext();
-
+  const [imageSrc, setImageSrc] = useState(null);
+  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
-    setFieldValue(name, file); // Set file in Formik values.
+    if (file && file.type.startsWith('image/')) {
+      // This is an image file
+      setFieldValue(name, file);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageSrc(reader.result);  // Set image URL
+      };
+      reader.readAsDataURL(file);
+    } else {
+      // Not an image file
+      console.warn("Uploaded file is not an image.");
+      setImageSrc(null);  // Reset image URL
+    }
   };
 
   return (
     <div className="flex flex-col pb-10">
+     {imageSrc && <img src={imageSrc} alt="Preview" />}
       {title && <span>{title}</span>}
       {title && (
         <label

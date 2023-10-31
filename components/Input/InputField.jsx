@@ -44,6 +44,8 @@ const InputField = ({ formField, initialValues, nextStep, step, isLastStep }) =>
           // ensuring the 'isValid' state is also false until this field is touched.
           setTouched({ [formField.name]: false });
           nextStep();
+        } else {
+          console.log(values)
         }
       }}
     >

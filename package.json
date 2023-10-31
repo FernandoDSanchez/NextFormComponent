@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "country-list": "^2.3.0",
     "encoding": "^0.1.13",
     "firebase": "^9.23.0",
     "firebase-admin": "^11.9.0",

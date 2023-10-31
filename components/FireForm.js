@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Welcome from "./InfoScreens/Welcome";
 import NavButton from "./buttons/NavButton";
 import InputField from "./Input/InputField";

@@ -1,3 +1,8 @@
+import { getNames } from 'country-list';
+
+const countries = getNames();
+const options = countries;
+
 export const ContactInputConfig = {
   "welcomePage": {
     "title": 'Solicitud de Experto en Orum 🚀',
@@ -39,7 +44,7 @@ export const ContactInputConfig = {
       "type": "select",
       "placeholder": "Tu país aquí 🌍",
       "title": "País",
-      "options" : ["Colombia", "Chile", "Mexico"],
+      "options" : options,
       "required": true,
       "helpText": "¡Dinos dónde estás viviendo!",
       "validated": "¡País seleccionado correctamente!"

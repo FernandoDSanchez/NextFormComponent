@@ -1,4 +1,4 @@
-const NextButton = ({ nextStep, text, color, type, isDisabled }) => {
+const NextButton = ({ nextStep, text, color, type, isDisabled, isLastStep }) => {
     
     const colorDisabled = "bg-slate-400"
     return (
